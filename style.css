@@ -1,0 +1,23 @@
+#backToTop {
+    opacity: 0;
+    visibility: hidden;
+}
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dark {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+.dark .bg-white {
+    background-color: #2d3748;
+}
+.dark .text-gray-600 {
+    color: #cbd5e0;
+}
+.dark .bg-gray-100 {
+    background-color: #2d3748;
+}
+/* Add more dark mode overrides as needed */

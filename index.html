@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamstone High School</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Navigation (single nav) -->
+    <nav class="bg-blue-900 text-white sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo / School Name -->
+            <a href="#" class="text-2xl font-bold">Hamstone High</a>
+
+            <!-- Desktop Menu (hidden on mobile) -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="hover:text-blue-200">About</a>
+                <a href="#academics" class="hover:text-blue-200">Academics</a>
+                <a href="#events" class="hover:text-blue-200">Events</a>
+                <a href="#contact" class="hover:text-blue-200">Contact</a>
+            </div>
+
+            <!-- Dark mode toggle & search (visible on all screens) -->
+            <div class="flex items-center space-x-2">
+                <button id="darkModeToggle" class="text-white focus:outline-none">
+                    🌙
+                </button>
+                <input type="text" id="searchInput" placeholder="Search..." class="hidden md:block px-3 py-1 rounded text-gray-800">
+            </div>
+
+            <!-- Hamburger Icon (visible on mobile) -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-4 py-2 space-y-2">
+            <a href="#about" class="block hover:text-blue-200">About</a>
+            <a href="#academics" class="block hover:text-blue-200">Academics</a>
+            <a href="#events" class="block hover:text-blue-200">Events</a>
+            <a href="#contact" class="block hover:text-blue-200">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main content sections -->
+    <main>
+        <!-- Hero (single section) -->
+        <section id="hero" class="relative h-96 md:h-screen overflow-hidden">
+            <!-- Slide images -->
+            <div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
+                <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?school,campus');"></div>
+                <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?students,classroom');"></div>
+                <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?library,books');"></div>
+            </div>
+
+            <!-- Overlay and text -->
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Hamstone High</h1>
+                    <p class="text-xl md:text-2xl mb-8">Where excellence meets opportunity</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results -->
+        <section id="searchResults" class="hidden py-8 px-4 max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold mb-4">Search Results</h2>
+            <div id="resultsContainer"></div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="py-16 px-4 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-blue-900 mb-4">About Hamstone High</h2>
+                    <p class="text-gray-600 mb-6">Hamstone High School is dedicated to fostering academic excellence, personal growth, and community spirit. With a rich history spanning 50 years, we prepare students for a bright future.</p>
+                    <a href="#" class="text-blue-600 font-semibold hover:underline">Read More →</a>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-700 counter" data-target="500">0</div>
+                        <p class="text-gray-600">Students</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-700 counter" data-target="50">0</div>
+                        <p class="text-gray-600">Teachers</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-700 counter" data-target="30">0</div>
+                        <p class="text-gray-600">Clubs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-700 counter" data-target="15">0</div>
+                        <p class="text-gray-600">Sports</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academics -->
+        <section id="academics" class="bg-gray-100 py-16 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Our Academic Programs</h2>
+
+                <!-- Tab Buttons -->
+                <div class="flex justify-center space-x-2 mb-6">
+                    <button class="tab-btn bg-blue-600 text-white px-6 py-2 rounded-t-lg" data-tab="science">Science</button>
+                    <button class="tab-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-t-lg" data-tab="arts">Arts</button>
+                    <button class="tab-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-t-lg" data-tab="commerce">Commerce</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="science" class="tab-content bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Science</h3>
+                    <p>Our science program includes physics, chemistry, and biology labs, preparing students for medical and engineering careers.</p>
+                </div>
+                <div id="arts" class="tab-content bg-white p-6 rounded-lg shadow hidden">
+                    <h3 class="text-xl font-semibold mb-2">Arts & Humanities</h3>
+                    <p>Explore literature, history, and fine arts with experienced faculty and creative workshops.</p>
+                </div>
+                <div id="commerce" class="tab-content bg-white p-6 rounded-lg shadow hidden">
+                    <h3 class="text-xl font-semibold mb-2">Commerce</h3>
+                    <p>Learn economics, accounting, and business management with real-world projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section id="events" class="py-16 px-4 max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Upcoming Events</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Dynamic event list -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">March 2025</h3>
+                    <div id="eventList" class="space-y-4"></div>
+                </div>
+                <!-- Quick view -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick View</h3>
+                    <div class="bg-white p-4 rounded shadow">
+                        <p class="text-gray-600">15th: Sports Day</p>
+                        <p class="text-gray-600">20th: Parent-Teacher Meeting</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery (placed before contact, inside main) -->
+        <section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Photo Gallery</h2>
+            <div class="flex justify-center space-x-4 mb-6">
+                <button class="gallery-filter bg-blue-600 text-white px-4 py-2 rounded" data-cat="all">All</button>
+                <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-2 rounded" data-cat="sports">Sports</button>
+                <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-2 rounded" data-cat="academics">Academics</button>
+                <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-2 rounded" data-cat="events">Events</button>
+            </div>
+            <div id="galleryContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="bg-blue-50 py-16 px-4">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Get in Touch</h2>
+                <form id="contactForm" action="https://formspree.io/f/xgonnpbn" method="POST">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <p class="text-sm text-red-500 hidden" id="nameError">Name is required.</p>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <p class="text-sm text-red-500 hidden" id="emailError">Valid email is required.</p>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                        <p class="text-sm text-red-500 hidden" id="messageError">Message cannot be empty.</p>
+                    </div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition w-full">Send Message</button>
+                </form>
+                <p id="formSuccess" class="text-green-600 text-center mt-4 hidden">Thank you! Your message has been sent.</p>
+                <p id="formError" class="text-red-600 text-center mt-4 hidden">Oops! Something went wrong. Please try again later.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8 px-4 text-center">
+        <div class="max-w-6xl mx-auto">
+            <p class="mb-2">© 2025 Hamstone High School. All rights reserved.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="hover:text-blue-300">Facebook</a>
+                <a href="#" class="hover:text-blue-300">Twitter</a>
+                <a href="#" class="hover:text-blue-300">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
