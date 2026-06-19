@@ -1,0 +1,31 @@
+{
+    "heroImages": [
+        "images/hero1.jpg",
+        "images/hero2.jpg",
+        "images/hero3.jpg"
+    ],
+    "events": [
+        {
+            "title": "Sports Day",
+            "date": "March 15, 2026",
+            "image": "images/sports-day.jpg",
+            "description": "Join us for a day of athletic competitions and fun."
+        },
+        {
+            "title": "Science Fair",
+            "date": "April 10, 2026",
+            "image": "images/science-fair.jpg",
+            "description": "Students showcase their innovative projects."
+        }
+    ],
+    "gallery": [
+        { "src": "images/hero1.jpg", "category": "sports" },
+        { "src": "images/hero2.jpg", "category": "academics" },
+        { "src": "images/hero3.jpg", "category": "academics" },
+        { "src": "images/hero4.jpg", "category": "events" },
+        { "src": "images/hero5.jpg", "category": "sports" },
+        { "src": "images/hero6.jpg", "category": "events" },
+        { "src": "images/hero7.jpg", "category": "academics" },
+        { "src": "images/hero8.jpg", "category": "sports" }
+    ]
+}
